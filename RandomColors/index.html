@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Colors</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            transition: 0.5s ease;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .box{
+            border: none;
+            box-shadow: 0 8px 15px 0px black;
+            width: 180px;
+            height: 120px;
+            margin-top: 150px;
+            text-align: center;
+            padding: 10px;
+            background-color: rgb(30, 114, 114);
+            color: white;
+            border-radius: 10px;
+
+        }
+        #btn{
+            margin-top: 10px;
+            padding:7px ;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            box-shadow: 0 2px 5px 0 black;
+            border-radius: 5px;
+            width: 100%;
+            background-color:rgb(52, 179, 52);
+        }
+        #btn:hover{
+            background-color:rgb(89, 224, 89);
+            cursor: pointer;
+        }
+        .navbar{
+            height: 80px;
+            width: 100%;
+            background-color: #9b9a9a;
+            text-align: center;
+            border: none;
+            box-shadow: 0 4px 10px 0 black;
+        }
+        .navbar h1{
+            padding: 20px;
+            font-size: 2rem;
+            
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar"><h1 id="title">Random Color Changer</h1></nav>
+    <div class="container">
+    <div class="box">
+        <h3 id="rgb-value">00 00 00</h3>
+        <br><br>
+    <button id="btn">Change Color</button>
+    </div>
+</div>
+
+
+    <script>
+
+        let rgbtext  = document.getElementById("rgb-value");
+        let btn = document.getElementById("btn");
+        let body = document.body;
+        let title = document.getElementById("title");
+
+        function changeColor(){
+            
+           let red = Math.floor(Math.random()*256);
+           let green = Math.floor(Math.random()*256);
+           let blue = Math.floor(Math.random()*256);
+
+           let rgbvalue = `rgb(${red}, ${green}, ${blue})`;
+
+           body.style.backgroundColor = rgbvalue;
+           rgbtext.innerText = rgbvalue;
+           rgbtext.style.color = rgbvalue;
+           title.style.color = rgbvalue;
+
+        }
+        body.onload = changeColor();
+        btn.addEventListener("click", changeColor);
+
+
+    </script>
+</body>
+</html>
