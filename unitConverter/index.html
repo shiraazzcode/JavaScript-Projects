@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <style>
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            background-color: #eeff;
+            padding: 30px;
+            margin: auto;
+            width: 620px;
+        }
+        .input{
+            font-size: 20px;
+            font-weight: bolder;
+        }
+        h1{
+            text-align: center;
+        }
+        .inputbox{
+            padding: 10px;
+            font-size: 1.1rem;
+        }
+       
+    </style>
+</head>
+<body>
+    <h1>UNIT CONVERTER</h1>
+    <div class="container">
+       
+        <div class="input">
+            <label for="foot">Foot</label>
+            <input type="number" class="inputbox" id="foot" value="0">
+            <span>=</span>
+        </div>
+       
+        <div class="input">
+            <label for="inch">Inch</label>
+            <input type="number" class="inputbox" name="inch" id="inch" value="0">
+        </div>
+    </div>
+
+    <script>
+
+        let foot = document.getElementById("foot");
+        let inch = document.getElementById("inch");
+
+        function convertUnit(){
+            //foot to inch
+            let f = foot.value;
+            let i = f*12;
+            inch.value = i;
+        }
+        foot.addEventListener("input", convertUnit);
+        inch.addEventListener("input", function(){
+            //inch to feet
+            let I = inch.value;
+            let F = I/12;
+            foot.value = F;
+        });
+    </script>
+</body>
+</html>
