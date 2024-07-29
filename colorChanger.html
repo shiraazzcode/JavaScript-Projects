@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color changer</title>
+    <style>
+        .container{
+           
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+
+        }
+        .box{
+            height: 100px;
+            width: 100px;
+            cursor: pointer;
+            box-shadow: 0 0 20px 0px black;
+            border-radius: 50%;
+            
+        }
+        h1{
+            text-align: center;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body style="background-color: black; color: white;">
+    <h1>COLOR SWITCHER</h1>
+    <div class="container">
+        
+        <div class="box" id="red" style="background-color: red;"></div>
+        <div class="box" id="blue" style="background-color: blue;"></div>
+        <div class="box" id="green" style="background-color: green;"></div>
+        <div class="box" id="aqua" style="background-color: aqua;"></div>
+    </div>
+    
+
+    <script>
+        //Projects one
+        //color changer/ scheme switcher
+        //using switch case
+
+
+        //select all boxes
+        let boxes = document.querySelectorAll('.box');
+
+        //select body tag
+        const body = document.body;
+        //function to change color when 
+        //clicked on specific box/button
+
+        boxes.forEach(function(button){
+            button.addEventListener('click', function(el){
+                //using switch case
+                let color = el.target.id;
+                switch (color) {
+                    case 'red':
+                        body.style.backgroundColor = el.target.id;
+                        break;
+                    case 'blue':
+                        body.style.backgroundColor = el.target.id;
+                        break;
+                    case 'green':
+                        body.style.backgroundColor = el.target.id;
+                        break;
+                    case 'aqua':
+                        body.style.backgroundColor = el.target.id;
+                        break;
+                
+                    default:
+                        console.log('color scheme switcher');
+                        break;
+                }
+            })
+        });
+
+    </script>
+</body>
+</html>
