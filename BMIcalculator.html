@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI calculator</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            background-color: rgb(83, 82, 82);
+        }
+        .bmicontainer{
+            border:none;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px 0px black;
+            width: 400px;
+            height: 300px;
+            padding: 10px;
+            text-align: center;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <!-- Project 2 -->
+    <!-- BMI calculator -->
+     <div class="bmicontainer">
+        <h1>BMI CALCULATOR</h1>
+        <form action="#">
+            <label for="bmi">Height in CM: </label><input type="text" id="inputheight">
+            <br>
+            <label for="bmi">Weight in KG: </label><input type="text" id="inputweight">
+            <br>
+            <button id="btn">Calculate</button>
+            <br>
+            <h3 id="result"></h3>
+            <br>
+            <div>
+            <h4>BMI GUIDE</h4>
+            <p>Under weight: less 18.5</p>
+            <p>Normal range: 18.5 - 24.9 </p>
+            <p>Overweight: 25.0 - 29.9</p>
+            <p>Obesity: 30.0 and above</p>
+        </div>
+
+
+        </form>
+     </div>
+
+    <script>
+        //Project 2
+        //BMI Calculator
+        //let height = document.querySelector
+        //('inputheight').value;
+        //above use case will give empty 
+        //value
+
+        let bmiform = document.querySelector('form');
+        bmiform.addEventListener('submit', function(e){
+            e.preventDefault();
+            let height = parseInt(document.querySelector('#inputheight').value);
+
+            let weight = parseInt(document.querySelector('#inputweight').value);
+            
+            let result = document.querySelector('#result');
+
+            if(height ===' ' || height < 0 || isNaN(height)){
+                result.innerHTML = 'Please Enter Valid data.'
+            }else if(weight ===' ' || weight < 0 || isNaN(weight)){
+                 result.innerHTML = 'Please Enter Valid data.'   
+            }else{
+                //bmi formula
+                let bmiValue = (weight/((height*height)/10000)).toFixed(2);
+                result.innerHTML = bmiValue;
+
+            }
+        });
+
+        //next feature/update
+        //print a msg based on bmi value 
+        //using bmi guide
+
+
+    </script>
+</body>
+</html>
