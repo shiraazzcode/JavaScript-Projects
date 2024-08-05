@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character counter</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:70vh;
+        }
+        .container{
+            padding: 10px;
+            padding-bottom: 20px;
+            background-color: aquamarine;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px 0 lightgreen;
+        }
+        #input{
+            padding: 5px;
+            font-size: 1.2rem;
+            border: none;
+        }
+        #result{
+            text-align: center;
+            margin-top: 10px;
+            font-size: 2rem;
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- HTML code -->
+<!-- <input id="input" type="text" placeholder="Enter any text"> -->
+ <div class="container">
+    <textarea name="text" rows="7" cols="30" id="input" placeholder="Enter any text"></textarea>
+<br>
+<!-- <button id="btn">Count character</button>  -->
+<h2>Number of Character: <span id="result"></span></h2>
+ </div>
+
+<!-- JavaScript code -->
+    <script>
+        let str = document.querySelector('#input');
+        let btn = document.querySelector('#btn');
+        
+        //using input event
+        str.addEventListener('input', countChar);
+
+        function countChar(){
+          let strvalue = str.value;
+            let charlen = strvalue.split(' ').join('').length;
+            let result = document.querySelector('#result');
+            result.innerHTML = charlen;   
+        }
+
+    
+        //countChar();
+
+    ///using click event
+        let str2 = document.querySelector('#input');
+        let btn2 = document.querySelector('#btn');
+        //btn2.addEventListener('click', countChar2);
+
+        function countChar2(){
+          let strvalue2 = str2.value;
+
+            let charlen2 = strvalue2.split(' ').join('').length;
+
+            let result2 = document.querySelector('#result');
+            result2.innerHTML = charlen2;
+            
+        }
+    </script>
+</body>
+</html>
