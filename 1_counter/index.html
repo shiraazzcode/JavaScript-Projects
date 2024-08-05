@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 80vh;
+
+        }
+        .counter{
+            background-color: lightblue;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 10px 0 darkblue;
+        }
+        #number{
+            text-align: center;
+            font-size: 4rem;
+        }
+        button{
+            text-align: center;
+            font-size: 1.2rem;
+            padding: 10px 30px;
+            font-weight: bolder;
+            border: none;
+        }
+        button:hover{
+            background-color: lightcyan;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="counter">
+        <h1 id="number">00</h1>
+        <div>
+        <button id="inc">+</button>
+        <button id="dec">-</button>
+    </div>
+    </div>
+    
+
+    <script>
+        //Counter program
+
+        //select buttons 
+       
+
+        function counter(){
+            let buttons = document.querySelectorAll('button');
+            
+            let countNumber = document.querySelector('#number');
+
+            let count = 0;
+        buttons.forEach((button) => {
+            button.addEventListener('click', () => {
+                if(button.id === 'inc'){
+                    count++;
+                    countNumber.innerHTML = count;
+
+                }else if(button.id === 'dec'){
+                    count--;
+                    countNumber.innerHTML = count;  
+                }
+            })
+        })
+    }
+    counter();
+
+    </script>
+</body>
+</html>
