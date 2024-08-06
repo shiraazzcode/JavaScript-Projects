@@ -46,7 +46,7 @@
     <textarea name="text" rows="7" cols="30" id="input" placeholder="Enter any text"></textarea>
 <br>
 <!-- <button id="btn">Count character</button>  -->
-<h2>Number of Character: <span id="result"></span></h2>
+<h2>Number of Characters: <span id="result"></span></h2>
  </div>
 
 <!-- JavaScript code -->
@@ -59,7 +59,8 @@
 
         function countChar(){
           let strvalue = str.value;
-            let charlen = strvalue.split(' ').join('').length;
+            let charlen = strvalue.split(' ').join('').replace(/(\r\n|\n|\r)/gm, "").length;
+            
             let result = document.querySelector('#result');
             result.innerHTML = charlen;   
         }
