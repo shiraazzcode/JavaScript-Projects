@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Message in Js</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+        }
+        .msgcontainer{
+            border:none;
+            border-radius: 5px;
+            box-shadow: 0 0 10px 0 black;
+            background-color: rgb(194, 192, 192);
+            padding: 10px 10px 5px;
+            min-height: 200px;
+            min-width: 400px;
+        }
+        #msg{
+            padding: 10px;
+            width: 100%;
+            border: none;
+            box-shadow: 0 1px 1px 0 black;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        #msgbtn{
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 3px 0 black;
+            background-color: rgb(190, 235, 250);
+            
+        }
+        #msgDisplayBox{
+            margin: 5px;
+            font-weight: bolder;
+            
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="msgcontainer">
+        <input type="text" id="msg" placeholder="write message">
+        <br>
+        <button id="msgbtn">Display Message</button>
+        <br>
+        <p id="msgDisplayBox"></p>
+        
+    </div>
+
+    <script>
+        //Display Message 
+        
+
+        let msgBtn = document.querySelector('#msgbtn');
+        msgBtn.addEventListener('click', displayMsg);
+
+        function displayMsg(){
+            let msginput = document.querySelector('#msg');
+            let msg = msginput.value;
+
+            let msgDisplayBox = document.querySelector('#msgDisplayBox');
+            msgDisplayBox.innerHTML += ` ${msg} <br>`;
+        }
+
+
+
+    </script>
+</body>
+</html>
