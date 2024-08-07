@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+.clock{
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 0 black;
+    padding: 20px;
+    /* min-height: 150px;
+    min-width: 200px; */
+    height: 150px;
+    width: 300px;
+    background-color: rgb(3, 107, 72);
+    color: white;
+}
+#time{
+    font-size: 3rem;
+    text-align: center;
+    
+}
+#date{
+    text-align: center;
+    font-size: 2rem;
+}
+#txt{
+    margin-top: 10px;
+    font-size: 0.7rem;
+    text-align: center;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="clock">
+        
+        <h1 id="time"></h1>
+        <h3 id="date"></h3>
+        <p id="txt">PAKISTAN LOCAL TIME</p>
+    </div>
+
+    <script>
+        //Simple Digital Clock
+
+      
+        function displayTimeDate(){
+            let timetext = document.querySelector('#time');
+            let datetext = document.querySelector('#date');
+            let date = new Date();
+            timetext.innerHTML = date.toLocaleTimeString();
+
+            datetext.innerHTML = date.toLocaleDateString();
+        }
+    
+        setInterval(displayTimeDate, 1000);
+
+        
+        
+        
+    </script>
+</body>
+</html>
