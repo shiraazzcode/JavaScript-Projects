@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paragraph Generator</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+        
+            width: 90%;
+            margin:10px;
+            background-color: black;
+            color: white;
+            min-height:80vh;
+
+        }
+        h1{
+        text-align: center;
+        }
+        .paras{
+            background-color: gray;
+            letter-spacing: 2px;
+            word-spacing: 5px;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        #input{
+            margin-left: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        #btn{
+            padding: 5px;
+            background-color: rgb(51, 247, 51);
+        }
+        #btn:hover{
+            cursor: pointer;
+            background-color: rgb(167, 255, 156);
+        }
+    </style>
+</head>
+<body>
+    <!-- HTML code -->
+    <div class="container">
+        
+
+        <input type="text" id="input" placeholder="Enter number of words">
+        <button id="btn">Generate Paragraph</button>
+        <!-- <p class="paras">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque eos distinctio amet officia id fuga est eveniet praesentium eligendi velit, labore magni quidem ducimus aut!
+        
+        </p> -->
+    </div>
+<!-- JavaScript code -->
+    <script>
+        //Paragraph generator
+        //get the input value
+        const input = document.getElementById('input');
+        //select container
+        const parabox = document.querySelector('.container');
+        let value;
+
+        //function that generate words
+        const generateWord = (n)=>{
+            let txt = '';
+            const letters = "qwertyuiioplkjhgfdsazxcvbnm";
+
+//loop to generate n no of words
+            for(let i =0; i < n; i++){
+                txt += letters[Math.floor(Math.random()*letters.length)];
+
+            }
+            return txt;
+        }
+        //function to generate paragraph from word
+        const paraGenerator = ()=>{
+            //no of words
+            value = Number(input.value);
+
+            const para1 = document.createElement('p');
+
+            // generateWord(Math.floor(Math.random()*15));
+
+            let paratext = ' ';
+
+            for(let i =0;i<value;i++){
+
+               paratext += generateWord(Math.floor(Math.random()*15)).toUpperCase();
+               //add space between words.
+                paratext += ' ';
+            }
+            //console.log(paratext);
+            
+            para1.setAttribute('class', 'paras');
+            para1.innerText = paratext;
+            parabox.appendChild(para1);
+
+        }
+        const btn = document.getElementById('btn').addEventListener('click', paraGenerator);
+    </script>
+</body>
+</html>
