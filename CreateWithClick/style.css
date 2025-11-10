@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    
+}
+
+.box{
+    background-color: black;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+}
