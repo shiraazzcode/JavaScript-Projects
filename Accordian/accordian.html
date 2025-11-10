@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordian</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid black;
+        }
+        .item{
+            border: 1px solid black;
+            margin: 5px;
+        }
+        .title{
+            background-color: black;
+            color: white;
+            padding: 5px;
+        }
+        .title:hover{
+            cursor: pointer;
+            background-color: rgb(56, 56, 56);
+        }
+        .content{
+            padding: 5px;
+            display: none;
+        }
+        .item.active-content .content{
+            display: block;
+        
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">
+        <h2 class="title">Title 1</h2>
+        <p class="content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat necessitatibus ex impedit sapiente, illo libero. Nisi, ipsam illo! Iure sequi optio rem repellendus officiis quisquam.</p>
+        </div>
+        <div class="item">
+        <h2 class="title">Title 2</h2>
+        <p class="content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure earum rerum nulla voluptate natus repellat nobis, porro enim obcaecati, odio voluptates. Necessitatibus atque expedita maiores!</p>
+        </div>
+
+         <div class="item">
+        <h2 class="title">Title 3</h2>
+        <p class="content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure earum rerum nulla voluptate natus repellat nobis, porro enim obcaecati, odio voluptates. Necessitatibus atque expedita maiores!</p>
+        </div>
+
+         <div class="item">
+        <h2 class="title">Title 4</h2>
+        <p class="content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure earum rerum nulla voluptate natus repellat nobis, porro enim obcaecati, odio voluptates. Necessitatibus atque expedita maiores!</p>
+        </div>
+    </div>
+    
+
+    <script>
+        // let titlebtn = Array.from(document.querySelectorAll(".title"));
+        // let content = document.querySelectorAll(".content");
+
+        let items = document.querySelectorAll(".item");
+
+        items.forEach((item)=>{
+            let title = item.querySelector(".title");
+            let content = item.querySelector(".content");
+            
+            title.addEventListener("click", ()=>{
+                item.classList.toggle("active-content");
+                
+            })
+        })
+      
+
+
+    </script>
+</body>
+</html>
