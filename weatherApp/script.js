@@ -3,6 +3,7 @@ let searchbtn = document.getElementById("input-btn");
 let location_name = document.getElementById("name");
 let temp = document.getElementById("temp");
 let desc = document.getElementById("description");
+let text = document.getElementById("text");
 
 // let url = `https://api.openweathermap.org/data/2.5/weather?q=${input_value.value}&appid=543b9169b7380d79ba6dcb740781ddef`;
 // fetch(url)
@@ -11,7 +12,7 @@ let desc = document.getElementById("description");
 // .catch(err => console.log("Error: ", err))
 
 searchbtn.addEventListener("click", ()=>{
-    console.log("loading...")
+    text.innerHTML = "Loading...";
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${input_value.value}&appid=543b9169b7380d79ba6dcb740781ddef&units=metric`;
     fetch(url)
     .then(res=> res.json())
@@ -27,7 +28,11 @@ searchbtn.addEventListener("click", ()=>{
 
 
 })
-    .catch(err => console.log("Error: ", err))
+    .catch(err => {
+        console.log("Error: ", err);
+        text.innerHTML = `${err}, Check your internet connection`;
+        
+    })
 })
 
 
