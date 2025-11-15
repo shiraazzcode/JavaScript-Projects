@@ -27,7 +27,7 @@
         });
 
         const getWordMeaning = async (word)=>{
-            console.log("loading...")
+            
             display_wordinfo.innerHTML = "<h4>loading...</h4>";
             const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
             .then(response => response.json())
@@ -59,4 +59,5 @@
         }
     </script>
 </body>
+
 </html>
