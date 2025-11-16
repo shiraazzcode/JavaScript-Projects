@@ -17,7 +17,7 @@ const getWordMeaning = async (word) => {
     .then((response) => response.json())
     .then((data) => {
       let definitions = data[0].meanings[0].definitions[0];
-      let meaning = data[0].meanings[0].definitions[0].definition;
+      let meaning = definitions.definition;
 
       let example = definitions.example;
       let part_of_speech = data[0].meanings[0].partOfSpeech;
@@ -36,3 +36,4 @@ const getWordMeaning = async (word) => {
       display_wordinfo.innerHTML = `Not Found!`;
     });
 };
+
