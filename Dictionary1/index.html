@@ -4,9 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dictionay App</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+            flex-direction: column;
+        }
+        .container{
+            border: none;
+            background: rgb(190, 189, 189);
+            border-radius: 5px;
+            height: 400px;
+            width: 500px;
+        }
+        #input-word{
+            margin-top: 10px;
+            margin-left: 70px;
+            padding: 10px;
+            width: 280px;
+            border: none;
+            box-shadow: 0 1px 1px 1px gray;
+            border-radius: 10px;
+
+        }
+        #search-btn{
+            padding: 10px;
+             border: none;
+            box-shadow: 0 1px 1px 1px gray;
+            border-radius: 10px;
+        }
+        .display-meaning{
+            margin: 20px;
+        }
+
+        .title{
+            margin-bottom: 20px;
+        }
+
+    </style>
 </head>
 <body>
+    <h1 class="title">Dictionary</h1>
     <div class="container">
+        
         <input type="text" placeholder="Search word" id="input-word">
         <button id="search-btn">Search</button>
 
@@ -14,51 +61,9 @@
 
         </div>
     </div>
+ 
 
-
-    <script>
-        const input_word = document.getElementById("input-word");
-        const search_btn = document.getElementById("search-btn");
-        const display_wordinfo = document.querySelector(".display-meaning");
-
-        search_btn.addEventListener("click", (e)=>{
-            e.preventDefault();
-            getWordMeaning(input_word.value);
-        });
-
-        const getWordMeaning = async (word)=>{
-            
-            display_wordinfo.innerHTML = "<h4>loading...</h4>";
-            const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
-            .then(response => response.json())
-            .then(data => {
-                let definitions = data[0].meanings[0].definitions[0]
-                let meaning = data[0].meanings[0].definitions[0].definition
-                
-                let example = definitions.example
-                let part_of_speech = data[0].meanings[0].partOfSpeech
-                let synonyms = data[0].meanings[0].synonyms
-                let antonyms = data[0].meanings[0].antonyms
-                
-                display_wordinfo.innerHTML = `
-                <h3>Meaning: ${meaning}</h3>
-                <p>Example: ${example}</p>
-                <p>Synonyms: ${synonyms.join(', ')}</p>
-                <p>Antonyms: ${antonyms.join(', ')}</p>
-                `
-                
-            })
-            .catch(err =>{
-                display_wordinfo.innerHTML = `Error: ${err}`;
-            })
-
-           
-            
-            
-
-        }
-    </script>
+    
+    <script src="script.js"></script>
 </body>
-
 </html>
-
