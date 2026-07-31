@@ -15,15 +15,14 @@
     width: min(569px, 90vw);
   height: min(500px, 90vw);
      display: grid;
-    /* grid-template-columns: repeat(19, 35px);
-    grid-template-rows: repeat(40, 35x);  */
+    
 
 }
 
 .grid-sqr {
   border: 1px solid #8b8787;
   padding: 5px;
-  /* transition: background-color 0.05s ease-out; */
+  transition: background-color 0.2s ease-out;
   
 }
 
